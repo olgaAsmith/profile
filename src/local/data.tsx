@@ -6,13 +6,24 @@ import PagecrmMain from '../../public/pagecrm.jpg';
 import TimerMain from '../../public/timer.jpg';
 import SoftlineMain from '../../public/softline.jpg';
 import MrbooMain from '../../public/mrboo.jpg';
+import Journey from '../../public/journeys.jpg';
 
 export const projects = [
   {
     id: 1,
+    name: 'Journeys',
+    description: 'Информационная страничка о путешествиях. Адаптивная верстка, использование анимации keyframes, интерактивные элементы.',
+    class: 'HTML',
+    stack: 'Animation CSS, Javascript',
+    deploy: 'https://olgaasmith.github.io/Journeys/',
+    gh: 'https://github.com/olgaAsmith/Journeys',
+    image: Journey,
+  },
+  {
+    id: 2,
     name: 'Save...Or-Not',
     description:
-      'Информационная страничка об игре. Работа с React hook form, немного анимации и библиотеки React.',
+      'Информационная страничка об игре. Работа с React, Next, React hook form, немного анимации и другие библиотеки React.',
     class: 'React',
     stack: 'Next.js, React, Typescript, Sass',
     deploy: 'https://olgaasmith.github.io/Save...Or-Not/',
@@ -20,21 +31,20 @@ export const projects = [
     image: SaveMain,
   },
   {
-    id: 2,
+    id: 3,
     name: 'Page CRM',
     description:
-      'Информационная страничка для сайта - кроссбраузерная и адаптивная верстка.',
+      'Информационная красочная страничка для сайта - кроссбраузерная и адаптивная верстка, интерактивные элементы, формы для отправки.',
     class: 'HTML',
     stack: 'HTML, CSS, Javascript',
     deploy: 'https://olgaasmith.github.io/pagecrm/',
     gh: 'https://github.com/olgaAsmith/pagecrm',
     image: PagecrmMain,
   },
-
   {
-    id: 3,
+    id: 4,
     name: 'Above Sea',
-    description: 'Landing page - верстка по макету',
+    description: 'Landing page - верстка по макету. Pixel perfect, адаптивная верстка.',
     class: 'HTML',
     stack: 'HTML, СSS, Javascript',
     deploy: 'https://olgaasmith.github.io/above-sea/',
@@ -42,9 +52,9 @@ export const projects = [
     image: AboveSeaMain,
   },
   {
-    id: 4,
+    id: 5,
     name: 'BrightTech',
-    description: 'Landing page - верстка по макету',
+    description: 'Landing page - верстка с использованием bootstrap.',
     class: 'HTML',
     stack: 'HTML, Sass, Bootstrap, Webpack',
     deploy: 'https://olgaasmith.github.io/BrightTech/',
@@ -52,7 +62,7 @@ export const projects = [
     image: BrightTechMain,
   },
   {
-    id: 5,
+    id: 6,
     name: 'About Team',
     description:
       'Регистрация пользователя, динамические роуты Next в сочетании с RTK.',
@@ -63,7 +73,7 @@ export const projects = [
     image: AboutTeamMain,
   },
   {
-    id: 6,
+    id: 7,
     name: 'Timer',
     description:
       'Timer - небольшое приложение на React. Создание, удаление, отсчет таймеров.',
@@ -74,9 +84,9 @@ export const projects = [
     image: TimerMain,
   },
   {
-    id: 7,
+    id: 8,
     name: 'Softline',
-    description: 'Landing page - одностраничный сайт.',
+    description: 'Landing page - одностраничный и адаптивный сайт визитка.',
     class: 'HTML',
     stack: 'HTML, SCSS, Javascript',
     deploy: 'https://olgaasmith.github.io/softline/',
@@ -84,9 +94,9 @@ export const projects = [
     image: SoftlineMain,
   },
   {
-    id: 8,
+    id: 9,
     name: 'Mr.Boo',
-    description: 'Landing page - одностраничный сайт.',
+    description: 'Landing page',
     class: 'HTML',
     stack: 'HTML, SCSS',
     deploy: 'https://olgaasmith.github.io/mrBoo/',
