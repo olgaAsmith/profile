@@ -7,6 +7,9 @@ import TimerMain from '../../public/timer.jpg';
 import SoftlineMain from '../../public/softline.jpg';
 import MrbooMain from '../../public/mrboo.jpg';
 import Journey from '../../public/journeys.jpg';
+import HarmonyShop from '../../public/harmonyshop.jpg';
+import RicknMorty from '../../public/ricknmorty.jpg';
+
 
 export const projects = [
   {
@@ -32,9 +35,20 @@ export const projects = [
   },
   {
     id: 3,
+    name: 'Harmony-Shop',
+    description:
+      'Прототип плейса для б/у товаров. Запросы на тестовые данные.',
+    class: 'React',
+    stack: 'Next.js, React, Typescript, Shadcn/ui, Tailwind, Zustand',
+    deploy: 'https://harmony-shop-vercel-q5sf3xl6s-ukolas-projects.vercel.app/',
+    gh: 'https://github.com/olgaAsmith/HarmonyShop',
+    image: HarmonyShop,
+  },
+  {
+    id: 4,
     name: 'Page CRM',
     description:
-      'Информационная красочная страничка для сайта - кроссбраузерная и адаптивная верстка, интерактивные элементы, формы для отправки.',
+      'Информационная красочная страничка для сайта - кроссбраузерная и адаптивная верстка, интерактивные элементы, формы.',
     class: 'HTML',
     stack: 'HTML, CSS, Javascript',
     deploy: 'https://olgaasmith.github.io/pagecrm/',
@@ -42,9 +56,19 @@ export const projects = [
     image: PagecrmMain,
   },
   {
-    id: 4,
+    id: 5,
+    name: '"Rick and Morty" search',
+    description: 'Поиск по вселенной Rick and Morty',
+    class: 'React',
+    stack: 'Next.js, React, Typescript, Shadcn/ui, Tailwind, Zustand',
+    deploy: 'https://rick-morty-kjuniyb8x-ukolas-projects.vercel.app/',
+    gh: 'https://github.com/olgaAsmith/rick-morty',
+    image: RicknMorty,
+  },
+  {
+    id: 6,
     name: 'Above Sea',
-    description: 'Landing page - верстка по макету. Pixel perfect, адаптивная верстка.',
+    description: 'Landing page. Pixel perfect, адаптивная верстка.',
     class: 'HTML',
     stack: 'HTML, СSS, Javascript',
     deploy: 'https://olgaasmith.github.io/above-sea/',
@@ -52,7 +76,7 @@ export const projects = [
     image: AboveSeaMain,
   },
   {
-    id: 5,
+    id: 7,
     name: 'BrightTech',
     description: 'Landing page - верстка с использованием bootstrap.',
     class: 'HTML',
@@ -62,7 +86,7 @@ export const projects = [
     image: BrightTechMain,
   },
   {
-    id: 6,
+    id: 8,
     name: 'About Team',
     description:
       'Регистрация пользователя, динамические роуты Next в сочетании с RTK.',
@@ -73,7 +97,7 @@ export const projects = [
     image: AboutTeamMain,
   },
   {
-    id: 7,
+    id: 9,
     name: 'Timer',
     description:
       'Timer - небольшое приложение на React. Создание, удаление, отсчет таймеров.',
@@ -84,7 +108,7 @@ export const projects = [
     image: TimerMain,
   },
   {
-    id: 8,
+    id: 10,
     name: 'Softline',
     description: 'Landing page - одностраничный и адаптивный сайт визитка.',
     class: 'HTML',
@@ -94,7 +118,7 @@ export const projects = [
     image: SoftlineMain,
   },
   {
-    id: 9,
+    id: 11,
     name: 'Mr.Boo',
     description: 'Landing page',
     class: 'HTML',

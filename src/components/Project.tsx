@@ -23,13 +23,15 @@ export const Project = ({
   return (
     <li
       key={id}
-      className='w-full rounded-3xl shadow-[0_0_10px_black] hover:shadow-[0_0_30px_black] transition-shadow duration-300 flex flex-col'
+      className='group w-full rounded-3xl shadow-[0_0_10px_black] hover:shadow-[0_0_30px_black] transition-shadow duration-300 flex flex-col overflow-hidden'
     >
-      <Image
-        className='object-cover w-full h-48 rounded-t-3xl sm:h-60 md:h-64 lg:h-72'
-        src={image}
-        alt='Изображение автора'
-      />
+      <div className='overflow-hidden rounded-t-3xl'>
+        <Image
+          className='object-cover w-full h-48 sm:h-60 md:h-64 lg:h-72 transform transition-transform duration-700 group-hover:scale-105'
+          src={image}
+          alt='Изображение автора'
+        />
+      </div>
       <div className='flex flex-col p-4 grow md:p-8'>
         <h2 className='mt-2 text-xl md:mt-4'>{name}</h2>
         <p className='mt-2 text-sm md:mt-6'>{description}</p>
