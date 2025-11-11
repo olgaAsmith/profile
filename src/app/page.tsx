@@ -10,9 +10,9 @@ export default function Home() {
 
   const getButtonClass = (buttonName: string) => {
     const baseClass =
-      'py-2 px-4 rounded-full bg-blue-950 transition-shadow duration-300 cursor-pointer w-max';
-    const activeClass = 'shadow-[0_0_20px_grey]';
-    const hoverClass = 'hover:shadow-[0_0_20px_black]';
+      'py-2 px-2 md:px-4 rounded-xl md:rounded-full bg-sky-950 transition-shadow duration-300 cursor-pointer w-max';
+    const activeClass = 'shadow-[0_0_20px_white]';
+    const hoverClass = 'hover:shadow-[0_0_20px_#3e90f2]';
 
     return activeButton === buttonName
       ? `${baseClass} ${activeClass}`
@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <section className='relative'>
       <nav>
-        <ul className='flex flex-col gap-6 justify-center sm:items-center md:flex-row'>
+        <ul className='flex flex-wrap mt-10 gap-4 md:gap-6 text-sm md:text-lg justify-center sm:items-center'>
           <li
             onClick={() => setActiveButton('All')}
             className={getButtonClass('All')}
@@ -51,7 +51,7 @@ export default function Home() {
         </ul>
       </nav>
 
-      <ul className='max-w-screen-xl w-full grid grid-cols-1 gap-10 w-full rounded-3xl mt-12 mx-auto md:shadow-[0_0_10px_black] md:p-8 md:w-3/4 lg:w-full lg:grid-cols-2'>
+      <ul className='max-w-screen-xl w-full grid grid-cols-1 gap-10 w-full rounded-3xl mt-8 md:mt-12 mx-auto md:shadow-[0_0_10px_black] md:p-8 md:w-3/4 lg:w-full lg:grid-cols-2'>
         {filteredProjects.map((project) => (
           <Project
             key={project.id}
@@ -67,10 +67,10 @@ export default function Home() {
       </ul>
       <Link
         href='https://github.com/olgaAsmith'
-        className='absolute top-[8px] right-0 opacity-50 hover:opacity-100 hover:font-bold hover:tracking-[.25em] transition-all duration-300'
+        className='fixed rounded-bl-xl bg-[linear-gradient(to_top,rgba(0,0,0,0.2),#0f172a)] p-2 top-0 right-0 lg:absolute lg:[background:none] opacity-80 hover:opacity-100 hover:font-bold hover:tracking-[.25em] transition-all duration-300 text-sm lg:text-lg'
         target='_blank'
       >
-        GitHub page
+        &rarr; GitHub page
       </Link>
     </section>
   );

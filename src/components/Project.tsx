@@ -23,9 +23,9 @@ export const Project = ({
   return (
     <li
       key={id}
-      className='group w-full rounded-3xl shadow-[0_0_10px_black] hover:shadow-[0_0_30px_black] transition-shadow duration-300 flex flex-col overflow-hidden'
+      className='group w-full rounded-xl lg:rounded-3xl shadow-[0_0_10px_black] hover:shadow-[0_0_30px_black] transition-shadow duration-300 flex flex-col overflow-hidden'
     >
-      <div className='overflow-hidden rounded-t-3xl'>
+      <div className='overflow-hidden rounded-t-md lg:rounded-t-3xl'>
         <Image
           className='object-cover w-full h-48 sm:h-60 md:h-64 lg:h-72 transform transition-transform duration-700 group-hover:scale-105'
           src={image}
@@ -39,14 +39,14 @@ export const Project = ({
         <div className='mt-auto flex flex-col gap-6 lg:flex-row'>
           <Link
             href={deploy}
-            className='py-2 px-4 rounded-full bg-blue-950 transition-shadow duration-300 hover:shadow-[0_0_20px_grey] w-max'
+            className='py-2 px-4 rounded-full bg-sky-950 transition-shadow duration-300 hover:shadow-[0_0_20px_white] w-max'
             target='_blank'
           >
             Посмотреть проект
           </Link>
           <Link
             href={gh}
-            className='py-2 px-4 rounded-full bg-blue-950 transition-shadow duration-300 hover:shadow-[0_0_20px_grey] w-max'
+            className='py-2 px-4 rounded-full bg-sky-950 transition-shadow duration-300 hover:shadow-[0_0_20px_white] w-max'
             target='_blank'
           >
             Посмотреть код

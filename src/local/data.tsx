@@ -9,6 +9,8 @@ import MrbooMain from '../../public/mrboo.jpg';
 import Journey from '../../public/journeys.jpg';
 import HarmonyShop from '../../public/harmonyshop.jpg';
 import RicknMorty from '../../public/ricknmorty.jpg';
+import WordQuiz from '../../public/words.jpg';
+import CardGameDurak from '../../public/cardgame.jpg';
 
 
 export const projects = [
@@ -26,7 +28,7 @@ export const projects = [
     id: 2,
     name: 'Save...Or-Not',
     description:
-      'Информационная страничка об игре. Работа с React, Next, React hook form, немного анимации и другие библиотеки React.',
+      'Информационная страничка об игре. Работа с React, Next, React hook form, простые анимации и другие библиотеки React.',
     class: 'React',
     stack: 'Next.js, React, Typescript, Sass',
     deploy: 'https://olgaasmith.github.io/Save...Or-Not/',
@@ -34,21 +36,20 @@ export const projects = [
     image: SaveMain,
   },
   {
-    id: 3,
-    name: 'Harmony-Shop',
-    description:
-      'Прототип плейса для б/у товаров. Запросы на тестовые данные.',
+    id: 14,
+    name: 'Card Game - Durak',
+    description: 'Классическая карточная игра ',
     class: 'React',
-    stack: 'Next.js, React, Typescript, Shadcn/ui, Tailwind, Zustand',
-    deploy: 'https://harmony-shop-vercel-q5sf3xl6s-ukolas-projects.vercel.app/',
-    gh: 'https://github.com/olgaAsmith/HarmonyShop',
-    image: HarmonyShop,
+    stack: 'React, Next.js, Tailwind, Zustand, TypeScript',
+    deploy: 'https://card-game-pi-pearl.vercel.app/',
+    gh: 'https://github.com/olgaAsmith/CardGame',
+    image: CardGameDurak,
   },
   {
     id: 4,
     name: 'Page CRM',
     description:
-      'Информационная красочная страничка для сайта - кроссбраузерная и адаптивная верстка, интерактивные элементы, формы.',
+      'Landing page - кроссбраузерная и адаптивная верстка, интерактивные элементы, формы.',
     class: 'HTML',
     stack: 'HTML, CSS, Javascript',
     deploy: 'https://olgaasmith.github.io/pagecrm/',
@@ -56,12 +57,22 @@ export const projects = [
     image: PagecrmMain,
   },
   {
+    id: 12,
+    name: 'Words Trainer',
+    description: 'Мини - приложение игра для изучения слов на других языках',
+    class: 'React',
+    stack: 'Vue 3, PapaParse, SheetJS',
+    deploy: 'https://olgaasmith.github.io/WordQuiz/',
+    gh: 'https://github.com/olgaAsmith/WordQuiz',
+    image: WordQuiz,
+  },
+  {
     id: 5,
     name: '"Rick and Morty" search',
     description: 'Поиск по вселенной Rick and Morty',
     class: 'React',
     stack: 'Next.js, React, Typescript, Shadcn/ui, Tailwind, Zustand',
-    deploy: 'https://rick-morty-kjuniyb8x-ukolas-projects.vercel.app/',
+    deploy: 'https://rick-morty-mu-vert.vercel.app/',
     gh: 'https://github.com/olgaAsmith/rick-morty',
     image: RicknMorty,
   },
@@ -120,11 +131,22 @@ export const projects = [
   {
     id: 11,
     name: 'Mr.Boo',
-    description: 'Landing page',
+    description: 'Landing page - одностраничный и адаптивный сайт визитка.',
     class: 'HTML',
     stack: 'HTML, SCSS',
     deploy: 'https://olgaasmith.github.io/mrBoo/',
     gh: 'https://github.com/olgaAsmith/mrBoo',
     image: MrbooMain,
+  },
+  {
+    id: 3,
+    name: 'Harmony-Shop',
+    description:
+      'Прототип плейса для б/у товаров. Запросы на тестовые данные.',
+    class: 'React',
+    stack: 'Next.js, React, Typescript, Shadcn/ui, Tailwind, Zustand',
+    deploy: 'https://harmony-shop-vercel-q5sf3xl6s-ukolas-projects.vercel.app/',
+    gh: 'https://github.com/olgaAsmith/HarmonyShop',
+    image: HarmonyShop,
   },
 ];

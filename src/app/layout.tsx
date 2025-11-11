@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='ru'>
       <body className={`scrollbar-custom min-h-screen flex ${rubik.className}`}>
-        <div className='grow p-8 bg-slate-900'>
+        <div className='grow p-4 lg:p-8 bg-sky-800'>
           <main className=''>
             {children}
           </main>
