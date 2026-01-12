@@ -11,13 +11,14 @@ import HarmonyShop from '../../public/harmonyshop.jpg';
 import RicknMorty from '../../public/ricknmorty.jpg';
 import WordQuiz from '../../public/words.jpg';
 import CardGameDurak from '../../public/cardgame.jpg';
-
+import RecordLabel from '../../public/recordlabel.jpg';
 
 export const projects = [
   {
     id: 1,
     name: 'Journeys',
-    description: 'Информационная страничка о путешествиях. Адаптивная верстка, использование анимации keyframes, интерактивные элементы.',
+    description:
+      'Лендинг с интерактивными анимациями. Адаптивная верстка, использование простых анимаций и keyframes.',
     class: 'HTML',
     stack: 'Animation CSS, Javascript',
     deploy: 'https://olgaasmith.github.io/Journeys/',
@@ -25,10 +26,21 @@ export const projects = [
     image: Journey,
   },
   {
+    id: 15,
+    name: 'RecordLabel',
+    description:
+      'Лендинг с интерактивными анимациями. Использование библиотеки анимаций GSAP и плагина ScrollTrigger.',
+    class: 'React',
+    stack: 'GSAP (ScrollTrigger), Next.js, React, CSS Modules, Typescript',
+    deploy: 'https://record-label-tau.vercel.app/',
+    gh: 'https://github.com/olgaAsmith/RecordLabel',
+    image: RecordLabel,
+  },
+  {
     id: 2,
     name: 'Save...Or-Not',
     description:
-      'Информационная страничка об игре. Работа с React, Next, React hook form, простые анимации и другие библиотеки React.',
+      'Многостраничник на React. Использование Next, React hook form, простые анимации.',
     class: 'React',
     stack: 'Next.js, React, Typescript, Sass',
     deploy: 'https://olgaasmith.github.io/Save...Or-Not/',
@@ -87,6 +99,16 @@ export const projects = [
     image: AboveSeaMain,
   },
   {
+    id: 10,
+    name: 'Softline',
+    description: 'Landing page - одностраничный и адаптивный сайт визитка.',
+    class: 'HTML',
+    stack: 'HTML, SCSS, Javascript',
+    deploy: 'https://olgaasmith.github.io/softline/',
+    gh: 'https://github.com/olgaAsmith/softline',
+    image: SoftlineMain,
+  },
+  {
     id: 7,
     name: 'BrightTech',
     description: 'Landing page - верстка с использованием bootstrap.',
@@ -108,27 +130,6 @@ export const projects = [
     image: AboutTeamMain,
   },
   {
-    id: 9,
-    name: 'Timer',
-    description:
-      'Timer - небольшое приложение на React. Создание, удаление, отсчет таймеров.',
-    class: 'React',
-    stack: 'React, Typescript, SCSS, Vite',
-    deploy: 'https://olgaasmith.github.io/Timer/',
-    gh: 'https://github.com/olgaAsmith/Timer',
-    image: TimerMain,
-  },
-  {
-    id: 10,
-    name: 'Softline',
-    description: 'Landing page - одностраничный и адаптивный сайт визитка.',
-    class: 'HTML',
-    stack: 'HTML, SCSS, Javascript',
-    deploy: 'https://olgaasmith.github.io/softline/',
-    gh: 'https://github.com/olgaAsmith/softline',
-    image: SoftlineMain,
-  },
-  {
     id: 11,
     name: 'Mr.Boo',
     description: 'Landing page - одностраничный и адаптивный сайт визитка.',
@@ -139,14 +140,14 @@ export const projects = [
     image: MrbooMain,
   },
   {
-    id: 3,
-    name: 'Harmony-Shop',
+    id: 9,
+    name: 'Timer',
     description:
-      'Прототип плейса для б/у товаров. Запросы на тестовые данные.',
+      'Timer - небольшое приложение на React. Создание, удаление, отсчет таймеров.',
     class: 'React',
-    stack: 'Next.js, React, Typescript, Shadcn/ui, Tailwind, Zustand',
-    deploy: 'https://harmony-shop-vercel-q5sf3xl6s-ukolas-projects.vercel.app/',
-    gh: 'https://github.com/olgaAsmith/HarmonyShop',
-    image: HarmonyShop,
+    stack: 'React, Typescript, SCSS, Vite',
+    deploy: 'https://olgaasmith.github.io/Timer/',
+    gh: 'https://github.com/olgaAsmith/Timer',
+    image: TimerMain,
   },
 ];
