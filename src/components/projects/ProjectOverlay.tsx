@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 
 import { MediaImage } from '@/components/ui/MediaImage';
+import { withBasePath } from '@/lib/base-path';
 import type { Project } from '@/lib/projects';
 import { duration, ease } from '@/lib/motion';
 import { captureRect, gsap, type RectSnapshot } from '@/lib/gsap';
@@ -233,7 +234,7 @@ export const ProjectOverlay = ({
           >
             <Image
               className='opacity-40 transition-opacity duration-200 ease-out-expo hover:opacity-100'
-              src='/icons/close.svg'
+              src={withBasePath('/icons/close.svg')}
               alt=''
               width={26}
               height={26}

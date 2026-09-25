@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { JetBrains_Mono, Rubik, Unbounded } from 'next/font/google';
+import { withBasePath } from '@/lib/base-path';
 import { site } from '@/lib/site';
 import './globals.css';
 
@@ -40,11 +41,15 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.png', sizes: '64x64', type: 'image/png' },
+      { url: withBasePath('/favicon.svg'), type: 'image/svg+xml' },
+      {
+        url: withBasePath('/favicon-32.png'),
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      { url: withBasePath('/favicon.png'), sizes: '64x64', type: 'image/png' },
     ],
-    apple: [{ url: '/favicon.png' }],
+    apple: [{ url: withBasePath('/favicon.png') }],
   },
   openGraph: {
     title,
@@ -55,7 +60,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: '/og.png',
+        url: withBasePath('/og.png'),
         width: 1200,
         height: 630,
         alt: `${site.name} — ${site.role}`,
