@@ -5,7 +5,7 @@ export const duration = {
   cinema: 1.2,
   previewFollow: 0.55,
   previewReveal: 0.5,
-  imageSwap: 0.45,
+  imageSwap: 0.8,
   liveScroll: 8,
   liveScrollDelay: 0.6,
   liveScrollRestartDelay: 1.4,

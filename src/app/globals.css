@@ -79,19 +79,32 @@
     font-size: 1.05rem;
   }
 
+  .project-row {
+    position: relative;
+  }
+
   .project-index.is-custom-cursor,
   .project-index.is-custom-cursor * {
     cursor: none;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .project-index.is-dimming .project-row {
-      transition: opacity var(--dur-fast) var(--ease-out-expo);
-    }
+  .project-row button {
+    transition: transform 120ms var(--ease-out-expo);
+  }
 
-    .project-index.is-dimming .project-row:not(.is-active) {
-      opacity: 0.4;
-    }
+  .project-row.is-active button,
+  .project-row button:focus-visible {
+    transform: translateX(0.5rem);
+  }
+
+  .project-row-accent {
+    color: var(--muted);
+    transition: color 120ms linear;
+  }
+
+  .project-row.is-active .project-row-accent,
+  .project-row button:focus-visible .project-row-accent {
+    color: var(--accent);
   }
 }
 

@@ -4,10 +4,6 @@ import { MaskText } from '@/components/ui/MaskText';
 import { staggerDelay } from '@/lib/motion';
 import { projectTypeLabels, type CategoryId, type Project } from '@/lib/projects';
 
-const accentOnHover =
-  '[@media(hover:hover)_and_(pointer:fine)]:group-hover/btn:text-accent';
-const accentOnFocus = 'group-focus-visible/btn:text-accent';
-
 interface ProjectRowProps {
   project: Project;
   index: number;
@@ -44,11 +40,11 @@ export const ProjectRow = ({
           onHover(null);
         }}
         aria-label={`${project.name}, ${projectTypeLabels[project.type]}`}
-        className='group/btn flex w-full touch-manipulation flex-col py-4 text-left transition-transform duration-fast ease-out-expo focus-visible:translate-x-5 md:py-7 [@media(hover:hover)_and_(pointer:fine)]:hover:translate-x-5'
+        className='flex w-full touch-manipulation flex-col py-4 text-left md:py-7'
       >
         <div className='flex items-baseline gap-3 md:gap-6'>
           <span
-            className={`shrink-0 font-mono text-[0.6875rem] tabular-nums text-muted transition-colors duration-fast md:text-xs ${accentOnHover} ${accentOnFocus}`}
+            className='project-row-accent shrink-0 font-mono text-[0.6875rem] tabular-nums md:text-xs'
           >
             {number}
           </span>
@@ -61,7 +57,7 @@ export const ProjectRow = ({
               className='block min-w-0'
             >
               <span
-                className={`font-display text-title leading-[1.05] tracking-[-0.02em] text-fg transition-colors duration-fast ${accentOnHover} ${accentOnFocus}`}
+                className='project-row-accent font-display text-title leading-[1.05] tracking-[-0.02em]'
               >
                 {project.name}
               </span>

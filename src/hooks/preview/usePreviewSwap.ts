@@ -90,20 +90,19 @@ export const usePreviewSwap = ({
     const incoming = frontIsPrimary ? primary : secondary;
     const outgoing = frontIsPrimary ? secondary : primary;
 
-    gsap.killTweensOf([incoming, outgoing], 'clipPath,autoAlpha,opacity');
+    gsap.killTweensOf([incoming, outgoing], 'autoAlpha,opacity');
 
     if (reducedMotion) {
-      gsap.set(incoming, { clipPath: 'inset(0% 0% 0% 0%)', autoAlpha: 1 });
-      gsap.set(outgoing, { clipPath: 'inset(0 0 100% 0)', autoAlpha: 0 });
+      gsap.set(incoming, { autoAlpha: 1 });
+      gsap.set(outgoing, { autoAlpha: 0 });
       return;
     }
 
-    if (back) {
-      gsap.set(outgoing, { clipPath: 'inset(0% 0% 0% 0%)', autoAlpha: 1 });
-      gsap.set(incoming, { clipPath: 'inset(100% 0 0 0)', autoAlpha: 1 });
+    if (!back) {
+      gsap.set(incoming, { autoAlpha: 1 });
+      gsap.set(outgoing, { autoAlpha: 0 });
     } else {
-      gsap.set(incoming, { clipPath: 'inset(100% 0 0 0)', autoAlpha: 1 });
-      gsap.set(outgoing, { clipPath: 'inset(0 0 100% 0)', autoAlpha: 0 });
+      gsap.set(incoming, { autoAlpha: 0 });
     }
   }, [swapKey, frontIsPrimary, reducedMotion, visible, front, back]);
 
@@ -167,19 +166,19 @@ export const usePreviewSwap = ({
     tl.to(
       outgoing,
       {
-        clipPath: 'inset(0 0 100% 0)',
+        autoAlpha: 0,
         duration: duration.imageSwap,
-        ease: ease.mask,
+        ease: ease.inOut,
       },
       0,
     ).to(
       incoming,
       {
-        clipPath: 'inset(0% 0% 0% 0%)',
+        autoAlpha: 1,
         duration: duration.imageSwap,
-        ease: ease.mask,
+        ease: ease.inOut,
       },
-      0,
+      0.08,
     );
   }, [swapKey, frontIsPrimary, reducedMotion, visible, front]);
 

@@ -47,6 +47,12 @@ export const MaskText = ({
         duration: duration.slow,
         delay,
         ease: ease.outExpo,
+        onStart: () => {
+          inner.style.willChange = 'transform';
+        },
+        onComplete: () => {
+          inner.style.willChange = 'auto';
+        },
       };
 
       const reveal = () => gsap.fromTo(inner, { yPercent: 115 }, animation);
@@ -77,7 +83,7 @@ export const MaskText = ({
       ref={rootRef}
       className={`inline-block overflow-hidden pb-[0.22em] -mb-[0.22em] ${className}`}
     >
-      <span ref={innerRef} className='inline-block will-change-transform'>
+      <span ref={innerRef} className='inline-block'>
         {children}
       </span>
     </span>

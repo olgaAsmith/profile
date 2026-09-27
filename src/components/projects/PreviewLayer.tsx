@@ -45,11 +45,8 @@ export const PreviewLayer = forwardRef<PreviewLayerHandle, PreviewLayerProps>(
       <div
         ref={frameRef}
         aria-hidden='true'
-        className='pointer-events-none fixed left-0 top-0 z-[55] h-[min(300px,36vh)] w-[min(460px,70vw)] overflow-hidden rounded-2xl border border-line/15 bg-surface'
+        className='pointer-events-none fixed left-0 top-0 z-[55] h-[min(300px,36vh)] w-[min(460px,70vw)] overflow-hidden rounded-2xl border border-line/15 bg-surface opacity-0'
         style={{
-          clipPath: 'inset(0 0 100% 0)',
-          opacity: 0,
-          visibility: 'hidden',
           borderColor: project ? `${project.accent}66` : undefined,
         }}
       >

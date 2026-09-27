@@ -11,7 +11,7 @@ import {
 import { usePointerMove } from '@/hooks/usePointerMove';
 import type { Project } from '@/lib/projects';
 
-const HOVER_COMMIT_MS = 300;
+const HOVER_COMMIT_MS = 100;
 
 const rowFromPoint = (x: number, y: number) => {
   const el = document.elementFromPoint(x, y);
@@ -36,13 +36,11 @@ export const useProjectHover = ({
   const commitTimer = useRef<number | null>(null);
 
   const markRow = useCallback((row: Element | null) => {
-    const list = listRef.current;
     if (activeRowRef.current && activeRowRef.current !== row) {
       activeRowRef.current.classList.remove('is-active');
     }
     activeRowRef.current = row;
     row?.classList.add('is-active');
-    list?.classList.toggle('is-dimming', Boolean(row));
   }, []);
 
   const cancelCommit = useCallback(() => {
