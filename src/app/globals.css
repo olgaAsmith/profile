@@ -85,13 +85,11 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .project-index:has(.project-row:hover) .project-row,
-    .project-index:has(.project-row:focus-within) .project-row {
-      transition: opacity var(--dur-base) var(--ease-out-expo);
+    .project-index.is-dimming .project-row {
+      transition: opacity var(--dur-fast) var(--ease-out-expo);
     }
 
-    .project-index:has(.project-row:hover) .project-row:not(:hover):not(:focus-within),
-    .project-index:has(.project-row:focus-within) .project-row:not(:hover):not(:focus-within) {
+    .project-index.is-dimming .project-row:not(.is-active) {
       opacity: 0.4;
     }
   }

@@ -13,7 +13,7 @@ interface ProjectRowProps {
   index: number;
   category: CategoryId;
   reducedMotion: boolean;
-  onHover: (project: Project | null) => void;
+  onHover: (project: Project | null, source?: HTMLElement | null) => void;
   onOpen: (project: Project) => void;
 }
 
@@ -36,11 +36,15 @@ export const ProjectRow = ({
           onOpen(project);
           e.currentTarget.blur();
         }}
-        onMouseEnter={() => onHover(project)}
-        onFocus={() => onHover(project)}
-        onBlur={() => onHover(null)}
+        onMouseEnter={(event) => onHover(project, event.currentTarget)}
+        onFocus={(event) => onHover(project, event.currentTarget)}
+        onBlur={(event) => {
+          const next = event.relatedTarget;
+          if (next instanceof Element && next.closest('.project-row')) return;
+          onHover(null);
+        }}
         aria-label={`${project.name}, ${projectTypeLabels[project.type]}`}
-        className='group/btn flex w-full touch-manipulation flex-col py-4 text-left transition-transform duration-base ease-out-expo focus-visible:translate-x-5 md:py-7 [@media(hover:hover)_and_(pointer:fine)]:hover:translate-x-5'
+        className='group/btn flex w-full touch-manipulation flex-col py-4 text-left transition-transform duration-fast ease-out-expo focus-visible:translate-x-5 md:py-7 [@media(hover:hover)_and_(pointer:fine)]:hover:translate-x-5'
       >
         <div className='flex items-baseline gap-3 md:gap-6'>
           <span

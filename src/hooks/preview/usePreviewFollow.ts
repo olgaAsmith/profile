@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 
 import { usePointerMove } from '@/hooks/usePointerMove';
@@ -29,8 +29,14 @@ export const usePreviewFollow = ({
   const rotTo = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const lastPointer = useRef({ x: 0, y: 0 });
   const rotReset = useRef<gsap.core.Tween | null>(null);
+  const frameSize = useRef({ width: 460, height: 300 });
+  const viewport = useRef({ width: 0, height: 0 });
+  const pointerRaf = useRef(0);
+  const queued = useRef({ x: 0, y: 0, tilt: false, pending: false });
   const onHideRef = useRef(onHide);
+  const projectRef = useRef(project);
   onHideRef.current = onHide;
+  projectRef.current = project;
 
   visibleRef.current = visible;
   reducedMotionRef.current = reducedMotion;
@@ -56,38 +62,94 @@ export const usePreviewFollow = ({
     }
   }, []);
 
+  const measureFrame = useCallback(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    frameSize.current = {
+      width: frame.offsetWidth || 460,
+      height: frame.offsetHeight || 300,
+    };
+  }, []);
+
   const followPointer = useCallback(
     (clientX: number, clientY: number, withTilt: boolean) => {
-      const frame = frameRef.current;
-      if (!frame || !xTo.current || !yTo.current) return;
+      if (!xTo.current || !yTo.current) return;
 
       const dx = clientX - lastPointer.current.x;
       lastPointer.current = { x: clientX, y: clientY };
 
       const margin = 20;
       const gap = 28;
-      const width = frame.offsetWidth || 460;
-      const height = frame.offsetHeight || 300;
-      const maxX = Math.max(margin, window.innerWidth - width - margin);
-      const maxY = Math.max(margin, window.innerHeight - height - margin);
-
-      const fitsRight = clientX + gap + width <= window.innerWidth - margin;
-      const rawX = fitsRight ? clientX + gap : clientX - gap - width;
+      const { width, height } = frameSize.current;
+      const viewWidth = viewport.current.width || window.innerWidth;
+      const viewHeight = viewport.current.height || window.innerHeight;
+      const maxX = Math.max(margin, viewWidth - width - margin);
+      const maxY = Math.max(margin, viewHeight - height - margin);
+      const rawX =
+        clientX + gap + width <= viewWidth - margin
+          ? clientX + gap
+          : clientX - gap - width;
 
       xTo.current(gsap.utils.clamp(margin, maxX, rawX));
       yTo.current(gsap.utils.clamp(margin, maxY, clientY - height * 0.6));
 
       if (!withTilt || reducedMotionRef.current || !rotTo.current) return;
 
-      const tilt = gsap.utils.clamp(-6, 6, dx * 0.18);
-      rotTo.current(tilt);
-      rotReset.current?.kill();
-      rotReset.current = gsap.delayedCall(0.12, () => {
+      rotTo.current(gsap.utils.clamp(-6, 6, dx * 0.18));
+      if (rotReset.current?.isActive()) {
+        rotReset.current.restart(true);
+        return;
+      }
+      rotReset.current = gsap.delayedCall(0.16, () => {
         rotTo.current?.(0);
       });
     },
     [],
   );
+
+  const scheduleFollow = useCallback(
+    (clientX: number, clientY: number, withTilt: boolean) => {
+      queued.current.x = clientX;
+      queued.current.y = clientY;
+      queued.current.tilt = queued.current.tilt || withTilt;
+      queued.current.pending = true;
+      if (pointerRaf.current) return;
+
+      pointerRaf.current = window.requestAnimationFrame(() => {
+        pointerRaf.current = 0;
+        const next = queued.current;
+        if (!next.pending) return;
+        next.pending = false;
+        const tilt = next.tilt;
+        next.tilt = false;
+        followPointer(next.x, next.y, tilt);
+      });
+    },
+    [followPointer],
+  );
+
+  useEffect(() => {
+    const readViewport = () => {
+      viewport.current = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    };
+
+    readViewport();
+    measureFrame();
+    window.addEventListener('resize', readViewport);
+
+    const frame = frameRef.current;
+    const observer = new ResizeObserver(measureFrame);
+    if (frame) observer.observe(frame);
+
+    return () => {
+      window.removeEventListener('resize', readViewport);
+      observer.disconnect();
+      if (pointerRaf.current) window.cancelAnimationFrame(pointerRaf.current);
+    };
+  }, [measureFrame]);
 
   const resetTilt = useCallback(() => {
     rotReset.current?.kill();
@@ -120,7 +182,7 @@ export const usePreviewFollow = ({
       return;
     }
 
-    followPointer(event.clientX, event.clientY, true);
+    scheduleFollow(event.clientX, event.clientY, true);
   });
 
   useGSAP(() => {
@@ -129,7 +191,8 @@ export const usePreviewFollow = ({
 
     gsap.killTweensOf(frame, 'autoAlpha,opacity,visibility,clipPath');
 
-    if (visible && project) {
+    if (visible && projectRef.current) {
+      measureFrame();
       ensureFollowTweens(frame);
       followPointer(lastPointer.current.x, lastPointer.current.y, false);
       gsap.set(frame, { visibility: 'visible' });
@@ -148,7 +211,7 @@ export const usePreviewFollow = ({
         rotation: 0,
       });
     }
-  }, [visible, reducedMotion, project, ensureFollowTweens, followPointer]);
+  }, [visible, reducedMotion, ensureFollowTweens, followPointer, measureFrame]);
 
   return { frameRef, resetTilt };
 };

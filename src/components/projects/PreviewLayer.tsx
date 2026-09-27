@@ -59,7 +59,7 @@ export const PreviewLayer = forwardRef<PreviewLayerHandle, PreviewLayerProps>(
               <div
                 key={primaryProject.id}
                 data-scroll-image
-                className='absolute inset-x-0 top-0 min-h-[180%] will-change-transform'
+                className='absolute inset-x-0 top-0 min-h-[180%]'
               >
                 <MediaImage
                   src={primaryProject.preview ?? primaryProject.cover}
@@ -75,7 +75,7 @@ export const PreviewLayer = forwardRef<PreviewLayerHandle, PreviewLayerProps>(
               <div
                 key={secondaryProject.id}
                 data-scroll-image
-                className='absolute inset-x-0 top-0 min-h-[180%] will-change-transform'
+                className='absolute inset-x-0 top-0 min-h-[180%]'
               >
                 <MediaImage
                   src={secondaryProject.preview ?? secondaryProject.cover}

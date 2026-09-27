@@ -62,7 +62,7 @@ export const Cursor = ({
     <div
       ref={rootRef}
       aria-hidden='true'
-      className='pointer-events-none fixed left-0 top-0 z-[60] flex items-center justify-center rounded-full border border-fg/30 bg-fg/10 text-[0.625rem] font-mono uppercase tracking-[0.16em] text-fg backdrop-blur-sm'
+      className='pointer-events-none fixed left-0 top-0 z-[60] flex items-center justify-center rounded-full border border-fg/30 bg-ink/80 text-[0.625rem] font-mono uppercase tracking-[0.16em] text-fg'
       style={{ width: 8, height: 8, opacity: 0 }}
     >
       <span
