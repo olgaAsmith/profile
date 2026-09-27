@@ -206,10 +206,10 @@ export const ProjectOverlay = ({
         onClick={onClose}
       />
 
-      <div className='relative z-10 grid max-h-[calc(100dvh-2rem)] w-full max-w-6xl gap-6 overflow-y-auto overscroll-contain md:max-h-[calc(100dvh-4rem)] lg:grid-cols-[1.3fr_0.9fr] lg:gap-10 lg:overflow-hidden'>
+      <div className='relative z-10 grid max-h-[calc(100dvh-2rem)] w-full max-w-6xl gap-6 overflow-y-auto overscroll-contain md:max-h-[calc(100dvh-4rem)] max-lg:max-w-none lg:grid-cols-[1.3fr_0.9fr] lg:gap-10 lg:overflow-hidden'>
         <div
           ref={mediaRef}
-          className='relative aspect-[16/10] max-h-[40vh] overflow-hidden rounded-2xl border border-line/15 bg-surface sm:max-h-none lg:aspect-auto lg:h-full lg:max-h-full'
+          className='relative w-full aspect-[16/10] overflow-hidden rounded-2xl border border-line/15 bg-surface max-lg:max-w-none lg:aspect-auto lg:h-full lg:max-h-full'
         >
           <MediaImage
             src={previewSrc}
