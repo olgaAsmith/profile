@@ -47,12 +47,6 @@ export const MaskText = ({
         duration: duration.slow,
         delay,
         ease: ease.outExpo,
-        onStart: () => {
-          inner.style.willChange = 'transform';
-        },
-        onComplete: () => {
-          inner.style.willChange = 'auto';
-        },
       };
 
       const reveal = () => gsap.fromTo(inner, { yPercent: 115 }, animation);

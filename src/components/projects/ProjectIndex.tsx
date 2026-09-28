@@ -13,6 +13,7 @@ import { Cursor } from '@/components/ui/Cursor';
 import { useEnvironment } from '@/hooks/useEnvironment';
 import { useProjectHover } from '@/hooks/useProjectHover';
 import { useProjectOverlay } from '@/hooks/useProjectOverlay';
+import { useWarmProjectList } from '@/hooks/useWarmProjectList';
 import { categoryCounts, projects, type CategoryId } from '@/lib/projects';
 
 export const ProjectIndex = () => {
@@ -29,6 +30,8 @@ export const ProjectIndex = () => {
       enabled: desktopPreview,
       blockHoverRef,
     });
+
+  useWarmProjectList(listRef, ready && desktopPreview);
 
   const { openProject, fromRect, handleOpen, handleClose } = useProjectOverlay({
     previewRef,
